@@ -1,0 +1,12 @@
+{
+  "routes": {
+    "/": {},
+    "/add-location": {},
+    "/dashboard": {},
+    "/login": {},
+    "/pages": {},
+    "/products": {},
+    "/scenario": {},
+    "/settings": {}
+  }
+}
