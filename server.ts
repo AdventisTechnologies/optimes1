@@ -1,0 +1,61 @@
+import { APP_BASE_HREF } from '@angular/common';
+import { CommonEngine } from '@angular/ssr';
+import express from 'express';
+import { fileURLToPath } from 'node:url';
+import { dirname, join, resolve } from 'node:path';
+import bootstrap from './src/main.server';
+
+export function app(): express.Express {
+  const server = express();
+  const serverDistFolder = dirname(fileURLToPath(import.meta.url));
+  const browserDistFolder = resolve(serverDistFolder, '../browser');
+  const indexHtml = join(serverDistFolder, 'index.server.html');
+
+  const commonEngine = new CommonEngine();
+
+  server.set('view engine', 'html');
+  server.set('views', browserDistFolder);
+
+  // Serve static files from the browserDistFolder (for Angular)
+  server.use(express.static(browserDistFolder, {
+    maxAge: '1y',
+  }));
+
+  // All unmatched routes should serve Angular's index.html for SSR
+  server.get('*', (req, res) => {
+    const { protocol, originalUrl, baseUrl, headers } = req;
+    console.log(`Serving route: ${req.url}`); // This will log all incoming requests
+  
+    commonEngine
+      .render({
+        bootstrap,
+        documentFilePath: indexHtml,
+        url: `${protocol}://${headers.host}${originalUrl}`,
+        publicPath: browserDistFolder,
+        providers: [{ provide: APP_BASE_HREF, useValue: baseUrl }],
+      })
+      .then((html) => {
+        console.log('SSR HTML:', html); // Log the rendered HTML
+        res.send(html);
+      })
+      .catch((err) => {
+        console.error('SSR Render Error:', err); // Log any errors during SSR rendering
+        res.status(500).send('Error: ' + err);
+      });
+  });
+  
+
+  return server;
+}
+
+function run(): void {
+  const port = process.env['PORT'] || 4000;
+
+  // Start up the Node server
+  const server = app();
+  server.listen(port, () => {
+    console.log(`Node Express server listening on http://localhost:${port}`);
+  });
+}
+
+run();
