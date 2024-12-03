@@ -23,11 +23,8 @@ const restrictroute = require('./routes/restrictRoute');
 const unauthorisedroute = require('./routes/unauthorisedRoute');
 
 
-app.use(cors({
-  origin: ['https://optimes.onrender.com'], // Whitelist the frontend URL
-  methods: ['GET', 'POST', 'PUT', 'DELETE'], // Allow required HTTP methods
-  allowedHeaders: ['Content-Type', 'Authorization'], // Allow necessary headers
-}));
+  app.options('*', cors()); // Preflight request handling
+
 
 
 // Middleware for parsing JSON bodies
