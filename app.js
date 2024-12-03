@@ -23,11 +23,12 @@ const restrictroute = require('./routes/restrictRoute');
 const unauthorisedroute = require('./routes/unauthorisedRoute');
 
 
-// Enable CORS for all routes
 app.use(cors({
-  origin: 'http://localhost:4200', // Allow requests from your Angular app
-  methods: ['GET', 'POST', 'PUT', 'DELETE'], // Specify allowed methods
+  origin: ['https://optimes.onrender.com'], // Whitelist the frontend URL
+  methods: ['GET', 'POST', 'PUT', 'DELETE'], // Allow required HTTP methods
+  allowedHeaders: ['Content-Type', 'Authorization'], // Allow necessary headers
 }));
+
 
 // Middleware for parsing JSON bodies
 app.use(express.json());  // This replaces the body-parser.json() middleware
