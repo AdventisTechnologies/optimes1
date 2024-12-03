@@ -23,7 +23,7 @@ const restrictroute = require('./routes/restrictRoute');
 const unauthorisedroute = require('./routes/unauthorisedRoute');
 
 
-  app.options('*', cors()); // Preflight request handling
+app.use(cors());
 
 
 
