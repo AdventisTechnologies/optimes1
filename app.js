@@ -25,7 +25,7 @@ app.get('*', (req, res) => {
 
 // Enable CORS for all routes - only need one cors middleware
 app.use(cors({
-  origin: 'http://localhost:4200', // Allow requests from Angular app
+  origin: 'https://optimes-1.onrender.com', // Allow requests from Angular app
   methods: ['GET', 'POST', 'PUT', 'DELETE'], // Specify allowed methods
   credentials: true               // Include credentials if necessary
 }));
@@ -33,7 +33,7 @@ app.use(cors({
 // Initialize Socket.IO
 const io = new Server(server, {
   cors: {
-    origin: 'http://localhost:4200', // Allow Angular app to connect
+    origin: 'https://optimes-1.onrender.com', // Allow Angular app to connect
     methods: ['GET', 'POST'],
     credentials: true
   },
@@ -88,6 +88,6 @@ io.on('connection', (socket) => {
 module.exports = app;
 
 // Start the server (you can place this in a separate file like `server.js` if needed)
-server.listen(4000, () => {
-  console.log('Server running on http://localhost:4000');
-});
+// server.listen(4000, () => {
+//   console.log('Server running on http://localhost:4000');
+// });
