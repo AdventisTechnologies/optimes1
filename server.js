@@ -93,9 +93,9 @@ require('dotenv').config();
 // Set up HTTP server with Socket.IO
 const http = require('http').createServer(app);
 const io = require('socket.io')(http); // Attach Socket.IO to the HTTP server
-mangobd_url=process.env.MONGODB||'mongodb+srv://srmrmpparthiban:20a8yW18xd48XYJ9@cluster0.vviu6.mongodb.net/optimus'
+
 // MongoDB connection
-mongoose.connect(mangobd_url, { useNewUrlParser: true, useUnifiedTopology: true })
+mongoose.connect(process.env.MONGODB, { useNewUrlParser: true, useUnifiedTopology: true })
   .then(() => {
     const db = mongoose.connection;
     const changeStream = db.collection('EmployeeData').watch();
@@ -110,7 +110,7 @@ mongoose.connect(mangobd_url, { useNewUrlParser: true, useUnifiedTopology: true 
 
 
 // Set up port and server listener
-const PORT = process.env.PORT || 3000 || 10000;
+const PORT = process.env.PORT || 3000;
 http.listen(PORT, '0.0.0.0', () => {
   console.log(`Server is Running On Port ${PORT}`);
 });
