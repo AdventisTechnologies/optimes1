@@ -1,10 +1,6 @@
 const PPEKit = require('../models/ppekit');
-// const Camera = require('../model/camera'); 
-
 const Camera = require('../models/CamereSchema');
-
 const User = require('../models/EmployeeSchema'); // Import User model
-
 exports.addPPEKit = async (req, res) => {
     try {
         const { personName, image, hardhat, mask, safetyVest, CameraLocationID, glass, safetyBoot } = req.body;
@@ -108,13 +104,6 @@ exports.addPPEKit = async (req, res) => {
     }
 };
 
-
-
-
-// GET all PPEKits
-// In your controller file (e.g., ppeKitController.js)
-
-// In your backend code
 exports.getAllPPEKits = async (req, res) => {
     try {
         // Populate 'personName' and 'camera' properly
@@ -154,6 +143,3 @@ exports.getAllPPEKits = async (req, res) => {
         res.status(500).json({ message: 'Error fetching PPE data', error });
     }
 };
-
-
-
