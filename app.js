@@ -14,6 +14,14 @@ const express = require('express');
 const app = express();
 const cors = require('cors');
 const server = http.createServer(app);
+const path = require('path');
+
+app.use(express.static(path.join(__dirname, 'dist', 'opti-mes' , 'browser')));
+
+app.get('*', (req, res) => {
+  res.sendFile(path.join(__dirname, 'dist', 'opti-mes','browser' ,'index.html'));
+});
+
 
 // Enable CORS for all routes - only need one cors middleware
 app.use(cors({
