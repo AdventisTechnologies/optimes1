@@ -16,15 +16,18 @@ const cors = require('cors');
 const server = http.createServer(app);
 const path = require('path');
 
-app.use(express.static(path.join(__dirname, 'dist', 'opti-mes' , 'browser')));
+// app.use(express.static(path.join(__dirname, 'dist', 'opti-mes' , 'browser')));
 
-app.get('*', (req, res) => {
-  res.sendFile(path.join(__dirname, 'dist', 'opti-mes','browser' ,'index.html'));
-});
+// app.get('*', (req, res) => {
+//   res.sendFile(path.join(__dirname, 'dist', 'opti-mes','browser' ,'index.html'));
+// });
+
+app.use('', express.static(path.join(__dirname, 'opti-mes')));
 
 
 // Enable CORS for all routes - only need one cors middleware
 app.use(cors({
+  // origin: 'http://localhost:4200', // Allow requests from Angular app
   origin: 'https://optimes-1.onrender.com', // Allow requests from Angular app
   methods: ['GET', 'POST', 'PUT', 'DELETE'], // Specify allowed methods
   credentials: true               // Include credentials if necessary
@@ -34,6 +37,7 @@ app.use(cors({
 const io = new Server(server, {
   cors: {
     origin: 'https://optimes-1.onrender.com', // Allow Angular app to connect
+    // origin: 'http://localhost:4200', // Allow Angular app to connect
     methods: ['GET', 'POST'],
     credentials: true
   },
