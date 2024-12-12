@@ -97,15 +97,16 @@ const io = require('socket.io')(http); // Attach Socket.IO to the HTTP server
 // MongoDB connection
 mongoose.connect(process.env.MONGODB, { useNewUrlParser: true, useUnifiedTopology: true })
   .then(() => {
-    const db = mongoose.connection;
-    const changeStream = db.collection('EmployeeData').watch();
+    // const db = mongoose.connection;
+    // const changeStream = db.collection('EmployeeData').watch();
     console.log('MangoDB Connected');
 
-    changeStream.on('change', (change) => {
-      console.log('Database change detected:', change);
-      io.emit('dbChange', change);  // Emit the change to all connected clients
-    });
+    // changeStream.on('change', (change) => {
+    //   console.log('Database change detected:', change);
+    //   io.emit('dbChange', change);  // Emit the change to all connected clients
+    // });
   })
+// }
   .catch((error) => console.error('MongoDB connection error:', error));
 
 
