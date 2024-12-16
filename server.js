@@ -89,28 +89,13 @@
 const app = require('./app');
 const mongoose = require('mongoose');
 require('dotenv').config();
-
-// Set up HTTP server with Socket.IO
 const http = require('http').createServer(app);
 const io = require('socket.io')(http); // Attach Socket.IO to the HTTP server
-
-// MongoDB connection
 mongoose.connect(process.env.MONGODB, { useNewUrlParser: true, useUnifiedTopology: true })
   .then(() => {
-    // const db = mongoose.connection;
-    // const changeStream = db.collection('EmployeeData').watch();
     console.log('MangoDB Connected');
-
-    // changeStream.on('change', (change) => {
-    //   console.log('Database change detected:', change);
-    //   io.emit('dbChange', change);  // Emit the change to all connected clients
-    // });
   })
-// }
   .catch((error) => console.error('MongoDB connection error:', error));
-
-
-// Set up port and server listener
 const PORT = process.env.PORT || 11000;
 http.listen(PORT, '0.0.0.0', () => {
   console.log(`Server is Running On Port ${PORT}`);
