@@ -111,7 +111,7 @@ mongoose.connect(process.env.MONGODB, { useNewUrlParser: true, useUnifiedTopolog
 
 
 // Set up port and server listener
-const PORT = process.env.PORT || 3000;
+const PORT = process.env.PORT || 10000;
 http.listen(PORT, '0.0.0.0', () => {
   console.log(`Server is Running On Port ${PORT}`);
 });
