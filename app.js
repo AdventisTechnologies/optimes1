@@ -17,7 +17,7 @@ const restrictroute = require('./routes/restrictRoute');
 const unauthorisedroute = require('./routes/unauthorisedRoute');
 
 // Environment Variables
-const port = process.env.PORT || 10000;
+const port = process.env.PORT || 11000;
 const mongoURI = process.env.MONGODB;
 const isProduction = process.env.NODE_ENV === 'production';
 const allowedOrigin = isProduction ? 'https://optimes-1.onrender.com' : 'http://localhost:4200';
