@@ -15,6 +15,7 @@ const userRoutes = require('./routes/user');
 const cameraFire = require('./routes/fire');
 const restrictroute = require('./routes/restrictRoute');
 const unauthorisedroute = require('./routes/unauthorisedRoute');
+const cameralog = require('./routes/defaultCamera');
 
 // Environment Variables
 const port = process.env.PORT || 10000;
@@ -33,9 +34,6 @@ app.use(cors({
   credentials: true
 }));
 
-
-
-
 // Static file serving
 app.use('', express.static(path.join(__dirname, 'opti-mes')));
 
@@ -52,6 +50,7 @@ app.use('/api/fire', cameraFire);
 app.use('/api', cameraFire);
 app.use('/api/user', restrictroute); 
 app.use('/api/user', unauthorisedroute);
+app.use('/camera', cameralog);
 
 // MongoDB Connection
 mongoose.connect(mongoURI, { useNewUrlParser: true, useUnifiedTopology: true })
@@ -89,6 +88,7 @@ const watchCollections = () => {
     { model: require('./models/restrict'), tableName: 'Occupancy' },
     { model: require('./models/fire'), tableName: 'Fire' },
     { model: require('./models/unauthorised'), tableName: 'UnauthorizedEntry' },
+    { model: require('./models/defaultCamera'), tableName: 'cameralog' },
     // Add other collections here if needed
   ];
 

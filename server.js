@@ -93,7 +93,6 @@ const http = require('http').createServer(app);
 const io = require('socket.io')(http); // Attach Socket.IO to the HTTP server
 mongoose.connect(process.env.MONGODB, { useNewUrlParser: true, useUnifiedTopology: true })
   .then(() => {
-
     console.log('MangoDB Connected');
   })
   .catch((error) => console.error('MongoDB connection error:', error));
