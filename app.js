@@ -112,8 +112,8 @@ if (!isProduction) {
 }
 
 // Start the server
-server.listen(port, () => {
-  console.log(`Server is running on ${isProduction ? 'production' : 'development'} mode at http://localhost:${port}`);
-});
+// server.listen(port, () => {
+//   console.log(`Server is running on ${isProduction ? 'production' : 'development'} mode at http://localhost:${port}`);
+// });
 
 module.exports = app;
