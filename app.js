@@ -21,7 +21,7 @@ const cameralog = require('./routes/defaultCamera');
 const port = process.env.PORT || 10000;
 const mongoURI = process.env.MONGODB;
 const isProduction = process.env.NODE_ENV === 'production';
-const allowedOrigin = isProduction ? 'https://optimes-1.onrender.com' : 'http://localhost:4200';
+const allowedOrigin = isProduction ? 'https://optimes.onrender.com' : 'http://localhost:4200';
 
 // Initialize app and server
 const app = express();
