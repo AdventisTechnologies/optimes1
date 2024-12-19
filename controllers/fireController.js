@@ -109,7 +109,7 @@ exports.getAllFireFrames = async (req, res) => {
     
       // If no frames are within the last hour, fallback to the last 3 frames
       if (frames.length === 0) {
-        frames = record.frames.slice(-10); // Take the last 3 frames if no recent data
+        frames = record.frames.slice(-50); // Take the last 3 frames if no recent data
       }
     
       // Extract and format the relevant data from the frames
