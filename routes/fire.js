@@ -4,7 +4,7 @@ const cameraController = require('../controllers/fireController');
 const router = express.Router();
 
 // Save a new frame
-router.post('/', cameraController.saveFrame);
+// router.post('/', cameraController.saveFrame);
 router.get('/fireframes', cameraController.getAllFireFrames);
 
 
