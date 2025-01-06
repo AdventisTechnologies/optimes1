@@ -1,6 +1,6 @@
 // routes/cameraRoutes.js
 const express = require('express');
-const cameraController = require('../controllers/fireController');
+const cameraController = require('../Controllers/fireController');
 const router = express.Router();
 
 // Save a new frame

@@ -1,5 +1,5 @@
 const express = require('express');
-const restrictController = require('../controllers/restrictcontroller'); // Adjust the path as necessary
+const restrictController = require('../Controllers/restrictcontroller'); // Adjust the path as necessary
 
 const router = express.Router();
 

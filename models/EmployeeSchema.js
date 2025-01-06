@@ -10,6 +10,10 @@ const EmployeeSchema = new mongoose.Schema({
         type: String,
         required: [true, 'Name should be mandatory']
     },
+    Rfid: {
+        type: String,
+        required: [true, 'Rfid should be mandatory']
+    },
     Department: {
         type: String,
         required: [true, 'Department should be mandatory']

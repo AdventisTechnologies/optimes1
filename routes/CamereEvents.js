@@ -1,6 +1,6 @@
 const Express = require('express');
 const Router = Express.Router();
-const CamereEventsController = require('../controllers/CamereEvent');
+const CamereEventsController = require('../Controllers/CamereEvent');
 Router.post('/CameraEventRegister',CamereEventsController.CamereEventsPost)
 Router.get('/CameraEventData',CamereEventsController.CamereEventsget)
 Router.put('/CamereEventUpdate/:id',CamereEventsController.CamereEventsUpdate)

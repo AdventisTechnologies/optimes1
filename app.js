@@ -18,10 +18,10 @@ const unauthorisedroute = require('./routes/unauthorisedRoute');
 const cameralog = require('./routes/defaultCamera');
 
 // Environment Variables
-const port = process.env.PORT || 10000;
+const port = process.env.PORT || 11000;
 const mongoURI = process.env.MONGODB;
 const isProduction = process.env.NODE_ENV === 'production';
-const allowedOrigin = isProduction ? 'https://optimes.onrender.com' : 'http://localhost:4200';
+const allowedOrigin = isProduction ? 'https://optimes-1.onrender.com' : 'http://localhost:4200';
 
 // Initialize app and server
 const app = express();
@@ -112,8 +112,8 @@ if (!isProduction) {
 }
 
 // Start the server
-// server.listen(port, () => {
-//   console.log(`Server is running on ${isProduction ? 'production' : 'development'} mode at http://localhost:${port}`);
-// });
+server.listen(port, () => {
+  console.log(`Server is running on ${isProduction ? 'production' : 'development'} mode at http://localhost:${port}`);
+});
 
 module.exports = app;

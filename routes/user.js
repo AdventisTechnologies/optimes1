@@ -1,6 +1,6 @@
 // routes/userRoutes.js
 const express = require('express');
-const userController = require('../controllers/userController');
+const userController = require('../Controllers/userController');
 const router = express.Router();
 
 // Route to create a new user
