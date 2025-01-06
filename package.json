@@ -3,7 +3,7 @@
   "version": "0.0.0",
   "scripts": {
     "ng": "ng",
-    "start": "node server.js",
+    "start": "node server",
     "build": "ng build",
     "watch": "ng build --watch --configuration development",
     "test": "ng test",
@@ -31,6 +31,7 @@
     "express": "^4.21.2",
     "file-saver": "^2.0.5",
     "font-awesome": "^4.7.0",
+    "git": "^0.1.5",
     "hls.js": "^1.5.18",
     "jsonwebtoken": "^9.0.2",
     "jspdf": "^2.5.2",
