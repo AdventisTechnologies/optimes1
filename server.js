@@ -96,7 +96,7 @@ mongoose.connect(process.env.MONGODB, { useNewUrlParser: true, useUnifiedTopolog
     console.log('MangoDB Connected');
   })
   .catch((error) => console.error('MongoDB connection error:', error));
-const PORT = process.env.PORT || 15014;
+const PORT = process.env.PORT || 4000;
 http.listen(PORT, '0.0.0.0', () => {
   console.log(`Server is Running On Port ${PORT}`);
 });
