@@ -18,7 +18,7 @@ const unauthorisedroute = require('./routes/unauthorisedRoute');
 const cameralog = require('./routes/defaultCamera');
 
 // Environment Variables
-const port = process.env.PORT || 11000;
+const port = process.env.PORT || 4001;
 const mongoURI = process.env.MONGODB;
 const isProduction = process.env.NODE_ENV === 'production';
 const allowedOrigin = isProduction ? 'https://optimes-1.onrender.com' : 'http://localhost:4200';
