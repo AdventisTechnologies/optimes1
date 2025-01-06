@@ -34,16 +34,8 @@ app.use(cors({
   credentials: true
 }));
 
-app.use(express.static(__dirname + '/dist/opti-mes'));
-
-app.get('/*', function (req, res) {
-  res.sendFile(path.join(__dirname + '/dist/opti-mes/index.html'));
-});
-
-const PORT = process.env.PORT || 8080;
-app.listen(PORT, () => {
-  console.log(`Server is running on port ${PORT}`);
-});
+// Static file serving
+app.use('', express.static(path.join(__dirname, 'opti-mes')));
 
 // Middleware for parsing JSON bodies
 app.use(express.json());
