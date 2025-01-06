@@ -1,5 +1,5 @@
 const express = require('express');
-const UnauthorizedEntryController = require('../Controllers/unauthorisedcontroller');
+const UnauthorizedEntryController = require('../controllers/unauthorisedcontroller');
 const router = express.Router();
 
 // Route to handle unauthorized entry data storage

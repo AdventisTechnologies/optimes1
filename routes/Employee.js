@@ -1,7 +1,7 @@
 const express = require('express');
 const Router = express.Router();
 const multermiddleware = require('../middleware/multer');  // Import multer middleware
-const EmployeeController = require('../Controllers/Employee'); // Import controller
+const EmployeeController = require('../controllers/Employee'); // Import controller
 const multer = require('multer');
 const storage = multer.memoryStorage();
 const upload = multer({ storage: storage });
