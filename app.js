@@ -35,7 +35,11 @@ app.use(cors({
 }));
 
 // Static file serving
-app.use('', express.static(path.join(__dirname, 'opti-mes')));
+app.use(express.static(path.join(__dirname, 'dist/opti-mes')));
+app.get('*', (req, res) => {
+  res.sendFile(path.join(__dirname, 'dist/opti-mes/index.html'));
+});
+
 
 // Middleware for parsing JSON bodies
 app.use(express.json());
